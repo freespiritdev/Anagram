@@ -1,0 +1,48 @@
+<html>
+<head>
+<SCRIPT Language = JavaScript>
+function anagram() {
+name = document.magicform.txtbx.value
+name = name.toLowerCase()
+
+arrText = new Array(name.length)
+len = arrText.length
+
+for (i = 0; i < len; i++) {
+arrText[i] = name.charAt(i)
+}
+
+newone = ""
+temp = ""
+i = 0
+
+//shuffle letter
+for (i = 1; i < len; i++) {
+newone = (Math.random() * len)
+newone = parseInt(newone, 10)
+temp = arrText[i]
+arrText[i] = arrText[newone]
+arrText[newone] = temp
+}
+
+NewName = ""
+NewName = arrText.join("")
+
+document.magicform.txtbx.value = NewName
+}
+
+</SCRIPT>
+
+</head>
+
+<body bgcolor = "indigo">
+
+ <FORM NAME = magicform>
+          <CENTER>
+            <INPUT TYPE = text NAME = txtbx SIZE = 20 VALUE ="Bumper Stickers">
+            <INPUT TYPE = Button VALUE = "Make Anagram Magic!" onClick = anagram()>
+          </CENTER>
+        </FORM>
+
+</body>
+</html>
